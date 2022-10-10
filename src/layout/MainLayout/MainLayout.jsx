@@ -5,8 +5,12 @@ import NavBar from '../../components/NavBar/NavBar';
 const MainLayout = () => {
     return (
         <div>
-            <NavBar />
-            <Outlet />
+            <div className='z-50 relative'>
+                <NavBar />
+            </div>
+            <div className='-z-50 relative'>
+                <Outlet />
+            </div>
         </div>
     );
 };
