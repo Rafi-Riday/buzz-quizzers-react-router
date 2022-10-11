@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import TopicsQuestions from '../TopicsQuestions/TopicsQuestions';
 
 const Topics = () => {
+    document.title = 'Buzz Quizzers | Topics';
     const quizList = useLoaderData().data;
     let logoDetailsList = [];
     quizList.forEach(quiz => logoDetailsList.push({ logo: quiz.logo, name: quiz.name }));

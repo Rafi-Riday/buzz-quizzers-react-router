@@ -4,9 +4,9 @@ import HeaderImg from '../HeaderImg/HeaderImg';
 const Header = ({ logoDetailsList }) => {
     return (
         <div className='px-0 py-4'>
-            <h3 className='text-center text-xl font-extrabold pt-4 pb-8'><span className='border-y-white border-y-2'>Be a Quizzer <span className='text-orange-300'>!!</span></span></h3>
+            <h3 className='text-center text-xl font-extrabold pt-2 pb-8'><span className='border-y-white border-y-2'>Be a Quizzer <span className='text-orange-300'>!!</span></span></h3>
             <div className='flex justify-center items-center'>
-                <div className={`grid grid-cols-${logoDetailsList.length} justify-between items-center w-full`}>
+                <div className={`px-0 sm:px-2 md:px-6 flex justify-center items-center w-full`}>
                     {
                         logoDetailsList.map((logoDetails, idx) => <HeaderImg key={idx} logoDetails={logoDetails} />)
                     }
