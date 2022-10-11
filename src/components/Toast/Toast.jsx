@@ -1,14 +1,12 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 
-
 const Toast = () => {
-
+    // toast theming
     const contextClass = {
         success: "bg-[#00867b]",
         info: "bg-blue-500",
     };
-
     return (
         <div>
             {/* toast */}
