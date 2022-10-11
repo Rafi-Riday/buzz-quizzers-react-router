@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Header from '../Header/Header';
+import TopicsQuestions from '../TopicsQuestions/TopicsQuestions';
 
 const Topics = () => {
     const quizList = useLoaderData().data;
@@ -9,7 +10,7 @@ const Topics = () => {
     return (
         <div>
             <Header logoDetailsList={logoDetailsList} />
-            <h3>Topics</h3>
+            <TopicsQuestions quizList={quizList} />
         </div>
     );
 };

@@ -1,5 +1,6 @@
 import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom"
 import ErrorPage from "./components/ErrorPage/ErrorPage";
+import Topic from "./components/Topic/Topic";
 import Topics from "./components/Topics/Topics";
 import MainLayout from "./layout/MainLayout/MainLayout";
 
@@ -18,6 +19,11 @@ function App() {
           path: '/topics',
           element: <Topics />,
           loader: () => fetch(`https://openapi.programming-hero.com/api/quiz`),
+        },
+        {
+          path: '/topics/:id',
+          element: <Topic />,
+          loader: ({ params }) => fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`),
         },
         {
           path: '*',
