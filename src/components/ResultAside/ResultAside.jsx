@@ -4,6 +4,7 @@ import { ResultContext } from '../../contexts/Contexts';
 import { handleOptionAnswer } from '../../utilities/handleOptionAnswer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRetweet } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 const ResultAside = ({ quizData }) => {
     const { results, setResults } = useContext(ResultContext);
@@ -20,7 +21,10 @@ const ResultAside = ({ quizData }) => {
                 <div><span className='font-semibold'>Correct :</span> <span className='text-orange-300'>{correctList?.length || 0}</span></div>
             </div>
             <button onClick={() => handleOptionAnswer({ results, setResults, topicId: quizData.id, command: ['clearResult',], })} className='btn btn-error btn-xs text-xs rounded'>Reset&nbsp;&nbsp;<FontAwesomeIcon icon={faRetweet} /></button>
-            <div className='text-xs'>* After you complete a quiz, result information wil be saved automatically</div>
+            <div className='text-xs'>
+                * After you complete a quiz, result information wil be saved automatically
+                * To check your exam statistics, go to our <NavLink className='border-b border-info px-1 hover:bg-info hover:text-slate-900 hover:rounded transition-all font-extrabold' to='/statistics'>Statistics</NavLink> page
+            </div>
         </div >
     );
 };
