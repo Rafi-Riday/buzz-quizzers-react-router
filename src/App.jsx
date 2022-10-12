@@ -1,3 +1,4 @@
+import React from 'react';
 import { createBrowserRouter, redirect, RouterProvider } from "react-router-dom"
 import Blogs from "./components/Blogs/Blogs";
 import ErrorPage from "./components/ErrorPage/ErrorPage";

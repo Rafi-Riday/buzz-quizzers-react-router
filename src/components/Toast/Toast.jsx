@@ -6,6 +6,7 @@ const Toast = () => {
     const contextClass = {
         success: "bg-[#00867b]",
         info: "bg-blue-500",
+        error: "bg-error",
     };
     return (
         <div>
