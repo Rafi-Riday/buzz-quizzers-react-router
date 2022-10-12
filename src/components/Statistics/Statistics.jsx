@@ -12,6 +12,7 @@ import { ResultContext } from '../../contexts/Contexts';
 import HeaderText from "../HeaderText/HeaderText";
 
 const Statistics = () => {
+    document.title = `Buzz Quizzers | Statistics`;
     const data = [];
     const { results } = useContext(ResultContext);
     results.forEach(result => {
