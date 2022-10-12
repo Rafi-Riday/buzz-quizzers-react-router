@@ -1,6 +1,8 @@
 import React from 'react';
 import HeaderText from '../HeaderText/HeaderText';
 import Question from '../Question/Question';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRetweet } from '@fortawesome/free-solid-svg-icons';
 
 const QuizQuestionsContainer = ({ quizData }) => {
     return (
@@ -13,7 +15,8 @@ const QuizQuestionsContainer = ({ quizData }) => {
                     }
                 </div>
                 <aside className='sm:relative'>
-                    <div className='sm:sticky sm:top-24'>asd</div>
+                    <div className='sm:sticky sm:top-24 p-6 bg-slate-700 rounded-xl'>
+                    </div>
                 </aside>
             </div>
         </div>
