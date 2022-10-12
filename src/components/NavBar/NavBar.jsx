@@ -3,11 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-const NavBar = () => {
+const NavBar = ({ navBarY, setNavBarY }) => {
     // scrolling effects
-    const [scrollingY, setScrollingY] = useState({ count: window.scrollY, direction: null });
-    const [navBarY, setNavBarY] = useState('top-0');
     const [navLink, setNavLink] = useState(false);
+    const [scrollingY, setScrollingY] = useState({ count: window.scrollY, direction: null });
     useEffect(() => {
         scrollingY.direction && (setNavBarY(scrollingY.direction), setNavLink(false));
     }, [scrollingY]);

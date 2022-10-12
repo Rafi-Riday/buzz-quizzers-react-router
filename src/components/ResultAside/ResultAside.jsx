@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import HeaderText from '../HeaderText/HeaderText';
-import { ResultContext } from '../../contexts/Contexts';
+import { ResultContext, NavBarOpenContext } from '../../contexts/Contexts';
 import { handleOptionAnswer } from '../../utilities/handleOptionAnswer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRetweet } from '@fortawesome/free-solid-svg-icons';
@@ -8,11 +8,12 @@ import { NavLink } from 'react-router-dom';
 
 const ResultAside = ({ quizData }) => {
     const { results, setResults } = useContext(ResultContext);
+    const { navBarY } = useContext(NavBarOpenContext);
     const topic = results.find(result => result.id === quizData.id);
     const answeredList = topic?.result?.filter(t => Object.values(t)[0] !== null);
     const correctList = topic?.result?.filter(t => Object.values(t)[0] === true);
     return (
-        <div className='sm:sticky sm:top-6 p-6 bg-slate-700 rounded-xl flex flex-col items-center gap-4'>
+        <div className={`transition-all duration-500 sm:sticky  ${navBarY === 'top-0' ? 'sm:top-24' : 'sm:top-6'} p-6 bg-slate-700 rounded-xl flex flex-col items-center gap-4`}>
             <progress className="progress progress-info bg-slate-900 w-full" value={answeredList?.length || 0} max={quizData.total}></progress>
             <HeaderText text={<span className='text-xl'>Latest Result</span>} />
             <div className='p-3 pb-0'>
