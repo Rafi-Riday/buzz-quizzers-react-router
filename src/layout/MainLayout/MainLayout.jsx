@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import Footer from '../../components/Footer/Footer';
 import NavBar from '../../components/NavBar/NavBar';
 import Toast from '../../components/Toast/Toast';
 import { ResultContext, NavBarOpenContext } from '../../contexts/Contexts';
@@ -15,14 +16,17 @@ const MainLayout = () => {
         resultsLocalStorage ? setResults(JSON.parse(resultsLocalStorage)) : handleOptionAnswer({ setResults, command: ['setEmptyResults',], });
     }, []);
     return (
-        <div>
+        <div className='min-h-screen flex flex-col'>
             <NavBar navBarY={navBarY} setNavBarY={setNavBarY} />
             <div className='h-20'></div>
             <ResultContext.Provider value={{ results, setResults }}>
                 <NavBarOpenContext.Provider value={{ navBarY }}>
-                    <Outlet />
+                    <div className='grow'>
+                        <Outlet />
+                    </div>
                 </NavBarOpenContext.Provider>
             </ResultContext.Provider>
+            <Footer />
             <Toast />
         </div>
     );

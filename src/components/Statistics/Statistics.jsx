@@ -35,7 +35,7 @@ const Statistics = () => {
         data.push(dataObj);
     });
     return (
-        <div>
+        <div className="">
             <div className="mb-6 mt-2 text-center">
                 <HeaderText text={<b className="text-2xl">Statistics</b>} />
             </div>

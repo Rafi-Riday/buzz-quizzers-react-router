@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeaderText from '../HeaderText/HeaderText';
 import Question from '../Question/Question';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRetweet } from '@fortawesome/free-solid-svg-icons';
 import ResultAside from '../ResultAside/ResultAside';
 
 const QuizQuestionsContainer = ({ quizData }) => {
+    useEffect(() => {
+        window.scroll(0, 0);
+    }, [])
     return (
         <div className='flex flex-col items-center mt-6'>
             <HeaderText text={<span className='text-3xl'>Questions</span>} />

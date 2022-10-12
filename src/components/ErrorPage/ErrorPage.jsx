@@ -8,7 +8,7 @@ const ErrorPage = () => {
     const error = useRouteError();
     console.error(error);
     return (
-        <div className='w-full h-[85vh] flex flex-col items-center justify-center gap-6'>
+        <div className='w-full flex flex-col items-center justify-center gap-6'>
             <img className='w-20' src={SadLogo} alt="Sad Logo" />
             <div className='text-center'>
                 <HeaderText text={<b className='text-2xl font-extrabold'>Sorry</b>} />
