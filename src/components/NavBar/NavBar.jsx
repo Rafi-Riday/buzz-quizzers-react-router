@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-const NavBar = ({ navBarEffects }) => {
-    const { navBarY, navLink, setNavLink } = navBarEffects;
+const NavBar = () => {
+    // scrolling effects
+    const [scrollingY, setScrollingY] = useState({ count: window.scrollY, direction: null });
+    const [navBarY, setNavBarY] = useState('top-0');
+    const [navLink, setNavLink] = useState(false);
+    useEffect(() => {
+        scrollingY.direction && (setNavBarY(scrollingY.direction), setNavLink(false));
+    }, [scrollingY]);
+    window.onscroll = () => {
+        scrollingY.count > window.scrollY ? setScrollingY({ count: window.scrollY, direction: 'top-0', }) : setScrollingY({ count: window.scrollY, direction: '-top-24', });
+    };
     return (
         <div className={`${navBarY} transition-all duration-[400ms] sm:duration-500 z-50 fixed w-full`}>
             <div className='bg-slate-600 px-6 py-4 flex items-center justify-between'>

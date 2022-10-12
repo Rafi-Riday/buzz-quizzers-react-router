@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faXmark, faTrophy } from '@fortawesome/free-solid-svg-icons';
 
 const commonThemes = { theme: 'colored', position: "bottom-right", hideProgressBar: false, closeOnClick: true, pauseOnHover: true, draggable: true, progress: undefined, };
 
@@ -12,7 +12,7 @@ const infoToast = (toastText, toastTime) => {
 };
 
 const successToast = (toastText, toastTime) => {
-    const mainToastFunc = () => toast.success((toastText || 'Success!'), { ...commonThemes, autoClose: toastTime || 3000, icon: <FontAwesomeIcon icon={faCheckCircle} />, });
+    const mainToastFunc = () => toast.success((toastText || 'Success!'), { ...commonThemes, autoClose: toastTime || 3000, icon: <FontAwesomeIcon className='text-orange-300' icon={faTrophy} />, });
     mainToastFunc();
 };
 

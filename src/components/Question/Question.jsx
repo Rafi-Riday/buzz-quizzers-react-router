@@ -3,7 +3,7 @@ import Option from '../Option/Option';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-const Question = ({ questionData, count }) => {
+const Question = ({ questionData, count, quizData }) => {
     const [isActiveOption, setIsActiveOption] = useState(-1);
     const { id, question, options, correctAnswer } = questionData;
     const [showCorrectOption, setShowCorrectOption] = useState(false);
@@ -18,7 +18,7 @@ const Question = ({ questionData, count }) => {
                     <div className='p-4 pb-0 flex flex-col items-start'>
                         <div className='flex flex-col gap-4'>
                             {
-                                options.map((option, idx) => <Option key={idx} optionInfo={{ option, correctAnswer, id, idx, isActiveOption, setIsActiveOption, showCorrectOption }} />)
+                                options.map((option, idx) => <Option key={idx} optionInfo={{ option, correctAnswer, id, idx, isActiveOption, setIsActiveOption, showCorrectOption }} quizData={quizData} />)
                             }
                         </div>
                     </div>

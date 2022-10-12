@@ -3,22 +3,20 @@ import { Outlet } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import Toast from '../../components/Toast/Toast';
 import { ResultContext } from '../../contexts/Contexts';
+import { handleOptionAnswer } from '../../utilities/handleOptionAnswer';
 
 const MainLayout = () => {
-    const [scrollingY, setScrollingY] = useState({ count: window.scrollY, direction: null });
-    const [navBarY, setNavBarY] = useState('top-0');
-    const [navLink, setNavLink] = useState(false);
-    useEffect(() => {
-        scrollingY.direction && (setNavBarY(scrollingY.direction), setNavLink(false));
-    }, [scrollingY]);
-    window.onscroll = () => {
-        scrollingY.count > window.scrollY ? setScrollingY({ count: window.scrollY, direction: 'top-0', }) : setScrollingY({ count: window.scrollY, direction: '-top-24', });
-    };
+    // localStorage
+    const resultsLocalStorage = localStorage.getItem('results');
+    const [results, setResults] = useState([]);
+    useState(() => {
+        resultsLocalStorage ? setResults(JSON.parse(resultsLocalStorage)) : handleOptionAnswer({ setResults, command: ['setEmptyResults',], });
+    }, []);
     return (
         <div>
-            <NavBar navBarEffects={{ navBarY, navLink, setNavLink }} />
+            <NavBar />
             <div className='h-20'></div>
-            <ResultContext.Provider value='asd'>
+            <ResultContext.Provider value={{ results, setResults }}>
                 <Outlet />
             </ResultContext.Provider>
             <Toast />
